@@ -1,0 +1,77 @@
+{
+    "environment": "DEVELOPMENT",
+    "mongodb": {
+        "hosts": "localhost:27017",
+        "db": "testapp",
+        "options" : "maxPoolSize=20&waitqueuemultiple=10"
+    },
+    "serviceMappings": {
+        "anotherService": {
+            "protocol": "http",
+            "host": "localhost",
+            "port": 1111
+        }
+    },
+    "http": {
+        "requestHeaderBufferSize": "6KB",
+        "maxThreads": 100,
+        "acceptQueueSize": 100,
+        "responseBufferSize": "32KB",
+        "lowResourcesMaxIdleTime": "5s",
+        "useForwardedHeaders": true,
+        "useDirectBuffers": true,
+        "acceptorThreadPriorityOffset": 0,
+        "responseHeaderBufferSize": "6KB",
+        "adminPort": 8501,
+        "requestBufferSize": "32KB",
+        "connectorType": "blocking",
+        "port": 8500,
+        "soLingerTime": "1s",
+        "lowResourcesConnectionThreshold": 25000,
+        "minThreads": 10,
+        "maxIdleTime": "1s",
+        "maxBufferCount": 1024,
+        "requestLog": {
+            "syslog": {
+                "host": "localhost",
+                "enabled": false,
+                "facility": "local0"
+            },
+            "console": {
+                "enabled": true
+            },
+            "file": {
+                "enabled": true,
+                "archivedFileCount": 5,
+                "archivedLogFilenamePattern": "./logs/auth-requests-%d.log.gz",
+                "currentLogFilename": "./logs/auth-requests.log"
+            }
+        },
+        "shutdownGracePeriod": "2s",
+        "reuseAddress": true,
+        "acceptorThreads": 3
+    },
+    "logging": {
+        "loggers": {
+            "uk.gov.hmrc": "ALL",
+            "com.yammer.dropwizard": "ALL"
+        },
+        "syslog": {
+            "host": "localhost",
+            "enabled": false,
+            "facility": "local0"
+        },
+        "console": {
+            "threshold": "ALL",
+            "enabled": true
+        },
+        "file": {
+            "threshold": "ALL",
+            "enabled": true,
+            "archivedFileCount": 5,
+            "archivedLogFilenamePattern": "./logs/auth-%d.log.gz",
+            "currentLogFilename": "./logs/auth.log"
+        },
+        "level": "INFO"
+    }
+}

@@ -1,0 +1,16 @@
+target
+logs
+lib_managed
+
+.DS_Store
+
+.idea
+*.ipr
+*.iws
+*.iml
+*.classpath
+*.project
+*.settings
+.sass-cache
+
+sbt-launch.jar
