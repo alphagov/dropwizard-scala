@@ -1,16 +1,19 @@
+#SBT
 target
 logs
 lib_managed
 
+#Mac OS X
 .DS_Store
 
+#Intellij
 .idea
 *.ipr
 *.iws
 *.iml
-*.classpath
-*.project
-*.settings
-.sass-cache
 
-sbt-launch.jar
+#Eclipse
+.classpath
+.project
+.settings
+.cache
