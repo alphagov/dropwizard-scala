@@ -3,7 +3,7 @@ import sbt.Keys._
 import scala.Some
 
 object Version {
-  val thisApp = "0.0.9"
+  val thisApp = "1.0.0-SNAPSHOT"
   val scala = "2.10.2"
   val dropWizard = "0.6.2"
   val json4s = "3.2.4"
