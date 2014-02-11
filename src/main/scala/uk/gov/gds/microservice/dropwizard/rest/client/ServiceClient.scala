@@ -81,6 +81,9 @@ class ServiceClient(client: Client, rootResourceUrl: String)(implicit formats: F
       case 404 =>
         warn("Received response with error 404")
         Failure(new FailureResponses.NotFoundException("Not found"))
+      case 403 =>
+        warn("Received response with error 403")
+        Failure(new FailureResponses.ForbiddenException("Forbidden"))
       case 400 =>
         warn("Received response with error 400")
         Failure(new FailureResponses.BadRequestException("Bad Request"))
