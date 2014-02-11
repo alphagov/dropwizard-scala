@@ -39,3 +39,7 @@ Then switch back to the `alphagov.github.com` folder and execute the following:
 $ git commit -am "Dropwizard Scala release/snapshot version XXX"
 $ git push
 ```
+
+*Note* Be careful what plugins you have installed in your `.sbt/0.13/plugins.sbt`
+or `.sbt/plugins.sbt` files as these can be included as dependencies in the
+generated POM.
