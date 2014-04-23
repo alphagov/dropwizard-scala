@@ -1,9 +1,7 @@
 {
     "environment": "DEVELOPMENT",
     "mongodb": {
-        "hosts": "localhost:27017",
-        "db": "testapp",
-        "options" : "maxPoolSize=20&waitqueuemultiple=10"
+        "uri": "mongodb://localhost:27017/testapp?maxPoolSize=20&waitqueuemultiple=10"
     },
     "http": {
         "requestHeaderBufferSize": "6KB",
