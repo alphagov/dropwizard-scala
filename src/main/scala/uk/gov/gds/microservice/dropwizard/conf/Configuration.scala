@@ -11,19 +11,11 @@ trait MongoConfiguration {
 
   @JsonProperty
   @NotEmpty
-  val hosts: String = "NOT CONFIGURED"
-
-  @JsonProperty
-  @NotEmpty
-  val db: String = "NOT CONFIGURED"
-
-  @JsonProperty
-  @NotEmpty
-  val options: String = "NOT CONFIGURED"
+  val uri: String = "NOT CONFIGURED"
 }
 
 sealed case class MongoConf() extends Configuration with MongoConfiguration {
-  def toURL = s"mongodb://$hosts/$db?$options"
+  def toURL = uri
 }
 
 trait ClientConfiguration {
