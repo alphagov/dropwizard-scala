@@ -28,8 +28,22 @@ object Settings {
       initialCommands in console := "import uk.gov.gds.microservice._",
       parallelExecution in Test := false,
       publishArtifact := true,
-      publishArtifact in Test := true
+      publishArtifact in Test := true,
+      credentials += Publishing.credentials, 
+      publishTo := Publishing.publishTo(version.value)
     )
+}
+
+object Publishing {
+  lazy val credentials = Credentials(Path.userHome / ".ivy2" / ".credentials")
+
+  def publishTo(version: String) = {
+    val host = "https://oss.jfrog.org/"
+    if (version.trim.endsWith("SNAPSHOT"))
+      Some("snapshots" at host + "oss-snapshot-local")
+    else
+      Some("releases"  at host + "oss-release-local")
+  } 
 }
 
 object Dependencies {

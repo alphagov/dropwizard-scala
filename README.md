@@ -6,10 +6,9 @@ dropwizard setup.
 To add Dropwizard Scala to your project with sbt, add the following lines to
 your `build.sbt`:
 
-```
-resolvers += "GDS Releases" at "http://alphagov.github.com/maven/releases"
-libraryDependencies += "uk.gov.gds" %% "dropwizard-scala" % "0.0.9"
-```
+    resolvers += "OJO Snapshots" at "https://oss.jfrog.org/oss-snapshot-local/",
+    // resolvers += "OJO Releases" at "https://oss.jfrog.org/oss-release-local/"
+    libraryDependencies += "uk.gov.gds" %% "dropwizard-scala" % "1.0.0-SNAPSHOT"
 
 Health Checks
 =============
@@ -48,32 +47,16 @@ packageOptions := Seq(ManifestAttributes(("Implementation-Version", "BUILDNUMBER
 Publishing
 ==========
 
-To publish a release or snapshot artefact follow these steps:
+Ensure the following credentials at ```~/.ivy2/.credentials```:
 
-First, clone the GOV.UK Github Pages repository:
-
-`
-$ git clone git@github.com:alphagov/alphagov.github.com.git
-`
+    realm=Artifactory Realm
+    host=oss.jfrog.org
+    user=gds
+    password=94ade971a5c95ee83c58176a2e9a30fd1eb78e38
 
 Then in your local Dropwizard Scala folder execute the following
 
-```
-$ sbt
-> set publishMavenStyle := true
-> set publishTo := Some(Resolver.file("your local repo", new java.io.File("<path>/maven/snapshots")))
-> publish
-```
-
-Where ```<path>``` is the cloned folder of the `alphagov.github.com` repo.
-
-Then switch back to the `alphagov.github.com` folder and execute the following:
-
-```
-$ git add .
-$ git commit -am "Dropwizard Scala release/snapshot version XXX"
-$ git push
-```
+    sbt publish
 
 *Note* Be careful what plugins you have installed in your `.sbt/0.13/plugins.sbt`
 or `.sbt/plugins.sbt` files as these can be included as dependencies in the
