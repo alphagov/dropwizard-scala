@@ -52,7 +52,7 @@ Ensure the following credentials at ```~/.ivy2/.credentials```:
     realm=Artifactory Realm
     host=oss.jfrog.org
     user=gds
-    password=94ade971a5c95ee83c58176a2e9a30fd1eb78e38
+    password=<revoked>
 
 Then in your local Dropwizard Scala folder execute the following
 
