@@ -62,7 +62,13 @@ object Dependencies {
     val salatUtil = "com.novus" %% "salat-util" % salat
 
     val swagger = "com.wordnik" % "swagger-jaxrs_2.10.0" % "1.2.5" excludeAll( ExclusionRule(organization = "javax.ws.rs", name="jsr311-api"), ExclusionRule(organization = "com.sun.jersey"), ExclusionRule(organization = "com.fasterxml.jackson.module"))
-    val dropwizardSwagger = "io.tesla.dropwizard" % "dropwizard-swagger" % "0.1.1" excludeAll( ExclusionRule(organization = "javax.ws.rs", name="jsr311-api"), ExclusionRule(organization = "com.sun.jersey"), ExclusionRule(organization = "com.fasterxml.jackson.module"), ExclusionRule(organization = "com.wordnik"))
+    val dropwizardSwagger = "io.tesla.dropwizard" % "dropwizard-swagger" % "0.1.1" excludeAll(
+      ExclusionRule(organization = "javax.ws.rs", name="jsr311-api"),
+      ExclusionRule(organization = "com.sun.jersey"),
+      ExclusionRule(organization = "com.fasterxml.jackson.module"),
+      ExclusionRule(organization = "com.wordnik", name = "swagger-core_2.9.1"),
+      ExclusionRule(organization = "com.wordnik", name = "swagger-jaxrs_2.9.1"),
+      ExclusionRule(organization = "com.wordnik", name = "swagger-annotations_2.9.1"))
   }
 
   sealed abstract class Test(scope: String) {
